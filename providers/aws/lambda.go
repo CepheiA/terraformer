@@ -115,7 +115,7 @@ func (g *LambdaGenerator) addFunctions(svc *lambda.Client) error {
 				}
 			}
 
-			if gp != nil {
+			if gp != nil && gp.Policy != nil {
 				outputPolicy := *gp.Policy
 				var policy Policy
 				err = json.Unmarshal([]byte(outputPolicy), &policy)
